@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="Leave Request Status">
+    <lightning-tabset 
+      active-tab-value="tabTwo"
+      variant="standard">
+        <lightning-tab label="Pending LR">
+                <lightning-card >
+                    <div class="slds-m-around_medium">
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_2-of-3 slds-text-align_right ">
+                            </div>
+                            <div class="slds-col slds-size_1-of-3">
+                                    <lightning-input 
+                                    type="search"
+                                    onchange={handleSearchChange} 
+                                    class="search-box" 
+                                    style="width: 250px;"
+                                    placeholder="Search here" >
+                                    </lightning-input>
+                            </div>
+                            </div>
+                        </br>
+                        
+                         <div >
+                                <lightning-datatable
+                                        key-field="id"
+                                        data={Paginationdata}
+                                        columns={COLUMNS}
+                                        onrowaction={handleRowAction}
+                                        hide-checkbox-column="">
+                                </lightning-datatable>
+                        </div>
+                        <div class="slds-m-top_medium slds-text-align_center">
+                            <lightning-button
+                                label="Previous"
+                                onclick={handlePreviousPage}
+                                disabled={isPreviousDisabled}>
+                            </lightning-button>
+                            <lightning-button
+                                label="Next"
+                                onclick={handleNextPage}
+                                disabled={isNextDisabled}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </lightning-card>        
+        </lightning-tab>
+    </lightning-tabset>
+</lightning-card>
+</template>
